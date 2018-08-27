@@ -34,7 +34,7 @@ method pagarA(empleado) {
 
 <br>
 
-## Manejo fino de las finanzas de Baigorria
+## Manejo fino de las finanzas de Giménez
 
 Modificar el comportamiento de Baigorria para que maneje sus gastos, el dinero que tiene, y su deuda. Cuando Baigorria gasta, se descuenta de su dinero, si no le alcanza aumenta la deuda. Cuando cobra un sueldo, Baigorria paga sus deudas. Si sobra algo, se suma al dinero que tiene. Agregar a Baigorria la capacidad de entender los mensajes: `gastar(cuanto)`, `totalDeuda()`, `totalDinero()`. 
 
