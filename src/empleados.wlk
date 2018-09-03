@@ -7,12 +7,19 @@ object gimenez {
 	var totalCobrado = 0
 	var dinero = 0
 	var deuda = 0
-	method sueldo() { return 15000 }
+	method sueldo() { return sueldo }
 	method sueldo(nuevoValor) { sueldo = nuevoValor }
 	method cobrarSueldo(){
 		totalCobrado = totalCobrado + sueldo
-		//agregar pago de deudas
 		dinero = dinero + sueldo
+		if(dinero >= deuda){
+			dinero -= deuda
+			deuda = 0
+		}
+		else{
+			deuda -= dinero
+			dinero = 0
+		}
 	}
 	method totalCobrado(){
 		return totalCobrado

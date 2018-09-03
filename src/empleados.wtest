@@ -10,3 +10,50 @@ test "sueldo de Baigorria y de Gimenez" {
 	gimenez.sueldo(12000)
 	assert.equals(12000, gimenez.sueldo())
 }
+
+test "sueldo, deuda y dinero iniciales de Gimenez" {
+	assert.equals(15000, gimenez.sueldo())
+	assert.equals(0, gimenez.totalDeuda())
+	assert.equals(0, gimenez.totalDinero())
+}
+
+test "deuda y dinero despues de que gimenez gasta 4000" {
+	gimenez.gastar(4000)
+	assert.equals(4000, gimenez.totalDeuda())
+	assert.equals(0, gimenez.totalDinero())
+}
+
+test "gimenez gasta 8000 despues de gastar 4000" {
+	gimenez.gastar(4000)
+	gimenez.gastar(8000)
+	assert.equals(12000, gimenez.totalDeuda())
+	assert.equals(0, gimenez.totalDinero())
+}
+
+test "gimenez cobra y paga su deuda" {
+	gimenez.gastar(4000)
+	gimenez.gastar(8000)
+	gimenez.cobrarSueldo()
+	assert.equals(0, gimenez.totalDeuda())
+	assert.equals(3000, gimenez.totalDinero())
+}
+
+test "gimenez gasta 25000 y se endeuda" {
+	gimenez.gastar(4000)
+	gimenez.gastar(8000)
+	gimenez.cobrarSueldo()
+	gimenez.gastar(25000)
+	assert.equals(22000, gimenez.totalDeuda())
+	assert.equals(0, gimenez.totalDinero())
+}
+
+test "gimenez cobra y no le alcanza" {
+	gimenez.gastar(4000)
+	gimenez.gastar(8000)
+	gimenez.cobrarSueldo()
+	gimenez.gastar(25000)
+	gimenez.cobrarSueldo()
+	assert.equals(7000, gimenez.totalDeuda())
+	assert.equals(0, gimenez.totalDinero())
+}
+
